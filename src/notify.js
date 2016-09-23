@@ -85,7 +85,7 @@ Notify.isSupported = function(perm) {
 Notify.needsPermission = (N && N.permission && N.permission === 'granted') ? false : true;
 
 // asks the user for permission to display notifications.  Then calls the callback functions is supplied.
-Notify.requestPermission = function(onPermissionGrantedCallback, onPermissionDeniedCallback) {
+Notify.requestPermission = function(onPermissionGrantedCallback, onPermissionDeniedCallback, onPermissionDefaultCallback) {
     N.requestPermission(function(perm) {
         switch (perm) {
         case 'granted':
@@ -101,8 +101,8 @@ Notify.requestPermission = function(onPermissionGrantedCallback, onPermissionDen
             }
             break;
         case 'default':
-            if (isFunction(onPermissionDeniedCallback)) {
-                onPermissionDeniedCallback();
+            if (isFunction(onPermissionDefaultCallback)) {
+                onPermissionDefaultCallback();
             }
             break;
         }

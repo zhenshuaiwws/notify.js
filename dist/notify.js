@@ -126,8 +126,8 @@
                   }
                   break;
               case 'default':
-                  if (isFunction(onPermissionDeniedCallback)) {
-                      onPermissionDeniedCallback();
+                  if (isFunction(onPermissionDefaultCallback)) {
+                      onPermissionDefaultCallback();
                   }
                   break;
           }
