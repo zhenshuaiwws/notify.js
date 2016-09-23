@@ -100,6 +100,11 @@ Notify.requestPermission = function(onPermissionGrantedCallback, onPermissionDen
                 onPermissionDeniedCallback();
             }
             break;
+        case 'default':
+            if (isFunction(onPermissionDeniedCallback)) {
+                onPermissionDeniedCallback();
+            }
+            break;
         }
     });
 };
