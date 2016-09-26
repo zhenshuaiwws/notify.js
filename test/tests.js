@@ -82,6 +82,20 @@ describe('permission', function() {
             expect(Notify.needsPermission).toBeTruthy();
         });
     });
+
+    describe('requestPermission (default)', function() {
+        beforeEach(function(done) {
+            spyOn(window.Notification, 'requestPermission').and.callFake(function(cb) {
+                cb('default');
+                done();
+            });
+            Notify.requestPermission();
+        });
+
+        it('The user didn\'t do anything', function() {
+            expect(Notify.needsPermission).toBeTruthy();
+        });
+    });
 });
 
 describe('callbacks', function() {
