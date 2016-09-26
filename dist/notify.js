@@ -207,4 +207,6 @@
 
   exports['default'] = Notify;
 
+  Object.defineProperty(exports, '__esModule', { value: true });
+
 }));

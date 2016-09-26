@@ -78,7 +78,7 @@ first.
 if (!Notify.needsPermission) {
     doNotification();
 } else if (Notify.isSupported()) {
-    Notify.requestPermission(onPermissionGranted, onPermissionDenied);
+    Notify.requestPermission(onPermissionGranted, onPermissionDenied, onPermissionDefault);
 }
 
 function onPermissionGranted() {
@@ -88,6 +88,10 @@ function onPermissionGranted() {
 
 function onPermissionDenied() {
 	console.warn('Permission has been denied by the user');
+}
+
+function onPermissionDefault() {
+	console.log('User not set');
 }
 ```
 
@@ -113,7 +117,7 @@ chrome where the notification remains open until the timeout or the x is clicked
 Static methods and properties
 -----------------------------
 
-* `Notify.requestPermission(onPermissionGrantedCallback, onPermissionDeniedCallback)` -
+* `Notify.requestPermission(onPermissionGrantedCallback, onPermissionDeniedCallback, onPermissionDefaultCallback)` -
 requests permission from the user if needed and handles permission callbacks.
 * `Notify.isSupported` - Function to test for Web Notifications API browser
 support
