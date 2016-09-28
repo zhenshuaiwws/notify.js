@@ -1,6 +1,7 @@
 SystemJS.config({
   baseURL: "/",
   paths: {
-    "npm:": "jspm_packages/npm/"
+    "npm:": "jspm_packages/npm/",
+    "notifyjs/": "src/"
   }
 });

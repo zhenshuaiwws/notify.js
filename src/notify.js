@@ -86,6 +86,9 @@ Notify.needsPermission = (N && N.permission && N.permission === 'granted') ? fal
 
 // asks the user for permission to display notifications.  Then calls the callback functions is supplied.
 Notify.requestPermission = function(onPermissionGrantedCallback, onPermissionDeniedCallback, onPermissionDefaultCallback) {
+    if (!Notify.isSupported()) {
+        return;
+    }
     N.requestPermission(function(perm) {
         switch (perm) {
         case 'granted':

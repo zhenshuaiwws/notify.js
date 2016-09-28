@@ -1,6 +1,8 @@
 SystemJS.config({
-  paths: {
-    "notifyjs/": "src/"
+  nodeConfig: {
+    "paths": {
+      "notifyjs/": "src/"
+    }
   },
   devConfig: {
     "map": {
